@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data product assignment</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data product assignment">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Data product assignment</h1>
+    <h2>Motor Trend Car Road Tests clustering simulation</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The purpose of this Shiny product is to produce an interactive web application to show the effect of variable selection and number of clusters have on K-means clustering and decrease the time of iteraction and data exploration.</p>
+
+<h2>Data set used</h2>
+
+<p>The data set used is the Motor Trend Car Road Tests extracted from the 1974 Motor Trend US magazine. </p>
+
+<h2>Layout</h2>
+
+<p>The left hand side shows the inputs into the simulation. Users can select a number of variables to include in the clustering via the check boxes. Follow by choose the number of clusters. The right hand side shows the output graphs of the K-means cluster. The top graph is  a bivariate plot. All observation are represented by points in the plot, using principal components. The bottom graph is the variable relationship plot between every single variable selected in the input. Colour are used to represent the different clusters.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Dynamic input</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Typically the process in determining the cluster, users have to evaluate different input variables and number of clusters to find the optimal K-mean cluster. What the Shiny application offers is drastic decrease in the time of interation and fast exploration of data.</p>
+
+<pre><code class="r">checkboxGroupInput(&quot;variable&quot;, &quot;Variables to include&quot;,
+                       c(&quot;Miles/(US) gallon&quot; = &quot;mpg&quot;, 
+                         &quot;Number of cylinders&quot; = &quot;cyl&quot;, 
+                         &quot;Displacement&quot; = &quot;disp&quot;, 
+                         &quot;Gross horsepower&quot; = &quot;hp&quot;,
+                         &quot;Rear axle ratio&quot; = &quot;drat&quot;,
+                         &quot;Weight (lb/1000)&quot; = &quot;wt&quot;,
+                         &quot;1/4 mile time&quot; = &quot;qsec&quot;,
+                         &quot;V/S&quot; = &quot;vs&quot;,
+                         &quot;Transmission&quot; = &quot;am&quot;,
+                         &quot;Number of forward gears&quot; = &quot;gear&quot;,
+                         &quot;Number of carburetors&quot; = &quot;carb&quot;)),
+numericInput(&#39;clusters&#39;, &#39;Cluster count&#39;, 3,min = 1, max = 9)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Instant evaluation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Once the variables are selected, the Shiny application will automatically generate the K-means cluster using dimension reduction. Users will be able to identify overlaps straight away. Note: the R codes shown above aren&#39;t the exact code used in the application. </p>
+
+<p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Granular variable view</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Users are also able to assess the relationship between the individual variables and clusters.
+<img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Dynamic input'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Instant evaluation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Granular variable view'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
